@@ -20,14 +20,12 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "RZFitFile",
-            cSettings: [.headerSearchPath("Internal")]
+            name: "RZFitFileTypes"
         ),
-//        .target(
-//            name: "SwiftFIT",
-//            dependencies: ["RZFitFile"],
-//            exclude: ["RZFitFile"]
-//        ),
+        .target(
+            name: "RZFitFile",
+            dependencies: ["RZFitFileTypes"]
+        ),
         .testTarget(
             name: "SwiftFITTests",
             dependencies: ["RZFitFile"]
